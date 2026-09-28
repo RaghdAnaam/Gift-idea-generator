@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🎁 Gift Idea Generator</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>🎁 Gift Idea Generator</h1>
+    <p class="tagline">Not sure what to buy? Let us help you find the perfect gift.</p>
+  </header>
+
+  <main>
+    <section class="form-section">
+      <form id="giftForm">
+
+        <div class="field-group">
+          <label>Recipient's Age Range</label>
+          <div class="tag-group" id="ageGroup">
+            <button type="button" class="tag" data-group="age" data-value="child">Child (0–12)</button>
+            <button type="button" class="tag" data-group="age" data-value="teen">Teen (13–17)</button>
+            <button type="button" class="tag" data-group="age" data-value="adult">Adult (18–54)</button>
+            <button type="button" class="tag" data-group="age" data-value="senior">Senior (55+)</button>
+          </div>
+        </div>
+
+        <div class="field-group">
+          <label>Interests <span class="hint">(pick one or more)</span></label>
+          <div class="tag-group" id="interestGroup">
+            <button type="button" class="tag" data-group="interest" data-value="tech">Tech</button>
+            <button type="button" class="tag" data-group="interest" data-value="books">Books</button>
+            <button type="button" class="tag" data-group="interest" data-value="outdoors">Outdoors</button>
+            <button type="button" class="tag" data-group="interest" data-value="cooking">Cooking</button>
+            <button type="button" class="tag" data-group="interest" data-value="fitness">Fitness</button>
+            <button type="button" class="tag" data-group="interest" data-value="art">Art & Craft</button>
+            <button type="button" class="tag" data-group="interest" data-value="gaming">Gaming</button>
+            <button type="button" class="tag" data-group="interest" data-value="music">Music</button>
+            <button type="button" class="tag" data-group="interest" data-value="travel">Travel</button>
+            <button type="button" class="tag" data-group="interest" data-value="fashion">Fashion</button>
+          </div>
+        </div>
+
+        <div class="field-group">
+          <label>Occasion</label>
+          <div class="tag-group" id="occasionGroup">
+            <button type="button" class="tag" data-group="occasion" data-value="birthday">🎂 Birthday</button>
+            <button type="button" class="tag" data-group="occasion" data-value="holiday">🎄 Holiday</button>
+            <button type="button" class="tag" data-group="occasion" data-value="anniversary">💍 Anniversary</button>
+            <button type="button" class="tag" data-group="occasion" data-value="graduation">🎓 Graduation</button>
+            <button type="button" class="tag" data-group="occasion" data-value="justbecause">💛 Just Because</button>
+          </div>
+        </div>
+
+        <div class="field-group">
+          <label>Budget: <span id="budgetLabel">Under $25</span></label>
+          <input type="range" id="budgetRange" min="0" max="3" step="1" value="0" />
+          <div class="budget-ticks">
+            <span>Under $25</span>
+            <span>$25–$50</span>
+            <span>$50–$100</span>
+            <span>$100+</span>
+          </div>
+        </div>
+
+        <button type="submit" class="btn-generate">✨ Generate Gift Ideas</button>
+      </form>
+    </section>
+
+    <section class="results-section" id="resultsSection" hidden>
+      <h2>Gift Suggestions</h2>
+      <p class="results-meta" id="resultsMeta"></p>
+      <div class="card-grid" id="cardGrid"></div>
+    </section>
+
+    <section class="saved-section" id="savedSection" hidden>
+      <h2>❤️ Saved Ideas</h2>
+      <div class="card-grid" id="savedGrid"></div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Made with ❤️ · Gift Idea Generator</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

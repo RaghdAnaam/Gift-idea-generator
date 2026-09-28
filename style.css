@@ -1,0 +1,297 @@
+/* ── Reset & Base ───────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg:         #fff8f2;
+  --surface:    #ffffff;
+  --border:     #f0d9c8;
+  --text:       #2d1f14;
+  --muted:      #8a6a54;
+  --accent:     #e8612a;
+  --accent-lt:  #fef0e8;
+  --saved:      #e84a6f;
+  --saved-lt:   #fdedf1;
+  --radius:     12px;
+  --shadow:     0 2px 12px rgba(0,0,0,0.07);
+}
+
+body {
+  font-family: -apple-system, "Segoe UI", system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  line-height: 1.6;
+}
+
+/* ── Header ─────────────────────────────────────────────── */
+header {
+  background: linear-gradient(135deg, #e8612a 0%, #f5943b 100%);
+  color: #fff;
+  text-align: center;
+  padding: 2.5rem 1rem 2rem;
+}
+
+header h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+header .tagline {
+  margin-top: 0.4rem;
+  font-size: 1.05rem;
+  opacity: 0.9;
+}
+
+/* ── Main Layout ─────────────────────────────────────────── */
+main {
+  max-width: 760px;
+  width: 100%;
+  margin: 2rem auto;
+  padding: 0 1rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* ── Form Section ────────────────────────────────────────── */
+.form-section {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 2rem;
+  box-shadow: var(--shadow);
+}
+
+.field-group {
+  margin-bottom: 1.6rem;
+}
+
+.field-group label {
+  display: block;
+  font-weight: 600;
+  font-size: 0.95rem;
+  margin-bottom: 0.6rem;
+  color: var(--text);
+}
+
+.field-group .hint {
+  font-weight: 400;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+/* ── Tags ────────────────────────────────────────────────── */
+.tag-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.tag {
+  padding: 0.4rem 0.9rem;
+  border-radius: 999px;
+  border: 1.5px solid var(--border);
+  background: #fff;
+  color: var(--muted);
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.tag:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.tag.active {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+
+/* ── Budget Slider ───────────────────────────────────────── */
+input[type="range"] {
+  width: 100%;
+  margin: 0.4rem 0 0.3rem;
+  accent-color: var(--accent);
+  cursor: pointer;
+  height: 4px;
+}
+
+.budget-ticks {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.75rem;
+  color: var(--muted);
+  margin-top: 0.2rem;
+}
+
+#budgetLabel {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+/* ── Generate Button ─────────────────────────────────────── */
+.btn-generate {
+  display: block;
+  width: 100%;
+  margin-top: 0.5rem;
+  padding: 0.85rem;
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius);
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  letter-spacing: 0.3px;
+  transition: background 0.15s ease, transform 0.1s ease;
+}
+
+.btn-generate:hover  { background: #d14e1f; }
+.btn-generate:active { transform: scale(0.98); }
+
+/* ── Results & Saved Sections ────────────────────────────── */
+.results-section,
+.saved-section {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.75rem 2rem;
+  box-shadow: var(--shadow);
+}
+
+.results-section h2,
+.saved-section h2 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 0.3rem;
+}
+
+.results-meta {
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin-bottom: 1.2rem;
+}
+
+/* ── Card Grid ───────────────────────────────────────────── */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.card {
+  background: var(--bg);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  transition: box-shadow 0.15s ease, transform 0.15s ease;
+  position: relative;
+}
+
+.card:hover {
+  box-shadow: 0 4px 18px rgba(0,0,0,0.1);
+  transform: translateY(-2px);
+}
+
+.card-emoji {
+  font-size: 1.8rem;
+}
+
+.card-name {
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--text);
+}
+
+.card-price {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--accent);
+  background: var(--accent-lt);
+  display: inline-block;
+  padding: 0.15rem 0.5rem;
+  border-radius: 999px;
+  width: fit-content;
+}
+
+.card-reason {
+  font-size: 0.8rem;
+  color: var(--muted);
+  flex: 1;
+}
+
+/* ── Save / Remove Buttons ───────────────────────────────── */
+.card-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 0.4rem;
+}
+
+.btn-save,
+.btn-remove {
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 0.3rem 0.65rem;
+  border-radius: 999px;
+  transition: background 0.15s ease;
+}
+
+.btn-save {
+  color: var(--saved);
+  background: var(--saved-lt);
+}
+
+.btn-save:hover   { background: #fbd5df; }
+.btn-save.saved   { color: #fff; background: var(--saved); cursor: default; }
+
+.btn-remove {
+  color: var(--muted);
+  background: #f0ece9;
+}
+.btn-remove:hover { background: #e0dbd6; }
+
+/* ── Empty State ─────────────────────────────────────────── */
+.empty {
+  grid-column: 1 / -1;
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.9rem;
+  padding: 1rem 0;
+}
+
+/* ── Footer ──────────────────────────────────────────────── */
+footer {
+  text-align: center;
+  padding: 1.5rem 1rem;
+  font-size: 0.8rem;
+  color: var(--muted);
+  border-top: 1px solid var(--border);
+  margin-top: auto;
+}
+
+/* ── Responsive ──────────────────────────────────────────── */
+@media (max-width: 540px) {
+  header h1      { font-size: 1.5rem; }
+  .form-section,
+  .results-section,
+  .saved-section { padding: 1.25rem; }
+  .card-grid     { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 360px) {
+  .card-grid { grid-template-columns: 1fr; }
+}
